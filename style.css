@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sora', Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background-color: #65737e;
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-heading {
+    border-bottom: 1px solid rgb(187, 187, 187);
+}
+.panel {
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap ; */
+    gap: 1rem;
+    /* margin-right: 20rem; */
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap ;
+    gap: 1rem;
+    /* margin-right: 20rem; */
+}
+
+.card-img {
+    width: 15rem;
+    height: auto;
+    overflow: hidden;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 0rem 1rem 1rem 1rem;
+    border-radius: 12px;
+    align-items: center;
+    width: 15rem;
+    height: auto;
+    gap: 0.5rem;
+    overflow: hidden;
+}
+
+.card h2 {
+    font-size: 22px;
+}
+
+.student-cards {
+    display: flex;
+}
+
+#promo, #normal, #others {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+aside {
+    background-color: #e8e8e8;
+    width: 40rem;
+    height: 100vh;
+    /* position: absolute; */
+    right: 0;
+    margin: 1rem;
+    border-radius: 12px;
+}
+
+.side-panel {
+    padding: 2rem;
+}
+
+.btn-selector {
+    padding: 0.4rem 1rem;
+    border-radius: 7px;
+    border: 1.5px solid black;
+    cursor: pointer;
+    transition: .2s ease-in-out all;
+    width: 100%;
+
+}
+
+.btn-selector:hover {
+    background-color: rgb(74, 74, 74);
+    color: white;
+    transition: .3s ease-in-out all;
+}
+
+/* popup */
+
+.popup {
+    position: fixed;
+    background-color: #e0e0e0;
+    padding: 2rem;
+    border-radius: 12px;
+    visibility: hidden;
+    left: 40dvw;
+    top: 40dvh  ;
+
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+#popup-btn {
+    background-color: yellowgreen;
+    border: none;
+    padding: .4rem .8rem;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 45%;
+
+}
+
+#cancel-btn {
+    background-color: rgb(192, 192, 192);
+    border: none;
+    padding: .4rem .8rem;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 45%;
+
+}
+
+.remove-btn {
+    background-color: rgb(255, 86, 86);
+    border: none;
+    padding: .4rem .8rem;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.open-popup {
+    visibility: visible;
+}
+
+.more-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+th {
+    padding: .5rem;
+    text-align: start;
+}
+
+td {
+    padding: .5rem;
+    border-top: 1px solid rgb(168, 168, 168);
+}
+table {
+    width: 100%;
+}
+
+.grand-total-container {
+    margin-top: 1rem;
+    border-top: 1px black solid;
+    padding: .4rem 0rem;
+}
+/* INPUT QUANTITY */
+#qty { 
+    padding: .5rem;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+}
+
+.fa-solid {
+    color: white;
+}
+
+#save-btn {
+    background-color: #9db1c1;
+    border: none;
+    padding: .6rem .8rem;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+#print-btn {
+    background-color: rgb(243, 216, 110);
+    border: none;
+    padding: .6rem .8rem;
+    border-radius: 7px;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+}
+
+#clear-btn {
+    background-color: #a3be8c;
+    border: none;
+    padding: .6rem .8rem;
+    border-radius: 7px;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+}
+
+.total-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.fa-print, .fa-download, .fa-circle-check {
+    color: black;
+}
