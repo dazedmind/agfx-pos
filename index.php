@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    // // $status = isset($_POST['status']) ? $_POST['status'] : '';
+    // if (!isset($_SESSION['status'])) {
+    //     $_SESSION['status'] = 'success';
+    // }
+
+    $transactionSuccess = isset($_SESSION['transaction_success']) && $_SESSION['transaction_success'];
+    unset($_SESSION['transaction_success']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +18,20 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="shortcut icon" href="img/fav-icon.png" type="image/x-icon">
     <title>Point of Sale System</title>
 </head>
 <body>
+    <input type="hidden" id="status" value="<?php echo isset($_SESSION['status']) ? $_SESSION['status'] : ''; ?>">
+
     <header>
         <h1>AGFX Printing Services - POS</h1>
         
         <ul class="navigation">
             <li class="nav-links">
-                <a href="#">Revenue</a>
+                <a href="sales.php">Revenue</a>
             </li>
             <li class="nav-links">
                 <a href="about.html">
@@ -138,25 +154,37 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
+
+        <div class="overlay" id="overlay"></div>
 
         <div class="popup" id="popup">
             <div class="more-info">
                 <input type="number" name="product-code" id="product-code" hidden>
 
-                <label for="number" style="font-weight: bold;">Quantity</label>
-                <input type="number" name="qty" id="qty" placeholder="0" value="1">
+                <label for="number" style="font-weight: bold;">Enter Quantity</label>
+                <input type="number" name="qty" id="qty" placeholder="0" value="1" min="1">
 
                 <div class="popup-btn-container">
-                    <button id="popup-btn">OK</button>
+                    <button id="popup-btn" type="submit">OK</button>
                     <button id="cancel-btn">CANCEL</button>
                 </div>
             </div>
         </div>
 
-        <aside>
+        <div class="cash-register" id="cash-register">
+            <div class="more-info">
+                <label for="cash-amount" style="font-weight: bold;">Enter Cash Amount</label>
+                <input type="number" name="cash-amount" id="cash-amount" placeholder="100">
+
+                <div class="popup-btn-container">
+                    <button id="cash-confirm-btn">OK</button>
+                    <button id="cash-cancel-btn">CANCEL</button>
+                </div>
+            </div>
+        </div>
+
+        <aside id="printable-content">
             <div class="side-panel">
                 <h1>Total</h1>
                 <div class="total-box" id="total-box">
@@ -174,21 +202,43 @@
                     </table>
                     
                     <div class="grand-total-container">
-                        <h1 id="grand-total">Total:</h1>
+                        <h2 id="grand-total">Grand Total:</h2>
+                        <h3 id="amount-inserted"></h3>
+                        <h3 id="change-display"></h3>
                     </div>
 
                     <div class="total-actions">
-                        <button id="clear-btn"><i class="fa-solid fa-circle-check"></i> Done Transaction</button>
+                        <button id="cash-btn"><i class="fa-regular fa-money-bill-1"></i> Insert Cash Amount</button>
+                        <!-- <button id="clear-btn"><i class="fa-solid fa-circle-check"></i> Done Transaction</button> -->
                         <button id="print-btn"><i class="fa-solid fa-print"></i> Print</button>
-                        <button id="save-btn"><i class="fa-solid fa-download"></i> Save</button>
-
+                        <form id="save-form" action="save_transaction.php" method="post">
+                            <input type="number" name="grand-total-amount" id="grand-total-amount" hidden>
+                            <button id="save-btn" type="submit"><i class="fa-regular fa-circle-check"></i> Done Transaction</button>
+                        </form>
                     </div>
+
                 </div>
             </div>
         </aside>
     </main>
 
     <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const saveBtn = document.getElementById('save-btn');
+            const status = document.getElementById('status').value;
+            const form = document.getElementById('save-form');
+
+            <?php if ($transactionSuccess) : ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Transaction Successful!',
+                    text: 'Your transaction has been saved successfully.',
+                });
+            <?php endif; ?>
+        });
+
+    </script>
 
 </body>
 </html>

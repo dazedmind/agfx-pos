@@ -1,0 +1,34 @@
+main {
+    flex-direction: column;
+    margin: 4rem;
+}
+
+.transaction-list ul {
+    list-style-type: none;
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#select-month, #select-year {
+    padding: .6rem;
+    border-radius: 7px;
+}
+
+#select-month-btn {
+    padding: .6rem .8rem;
+    background-color: #8fa1b3;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+#select-month-btn:hover{
+    background-color: #7e8e9d;
+    
+}
