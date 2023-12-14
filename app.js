@@ -90,17 +90,17 @@ selectBtn.forEach((btn) => {
                 break;
             case 'photocopy-b2b':
                 price = 6;
-                productName = 'Photocopy Back-to-back';
+                productName = 'Photocopy B2B';
                 productCode.value = 9;
                 break;
             case 'promo-print':
                 price = 5;
-                productName = 'Student BNW/Colored Print';
+                productName = 'Student Print';
                 productCode.value = 10;
                 break;
             case 'promo-xerox':
                 price = 3;
-                productName = 'Student Photocopy';
+                productName = 'Student PRNT/XR';
                 productCode.value = 11;
                 break;
             case 'promo-image':
@@ -109,10 +109,25 @@ selectBtn.forEach((btn) => {
                 productCode.value = 12;
                 break;
             case 'gcash':
-                    price = 10;
-                    productName = 'GCash In/Out';
-                    productCode.value = 13;
-                    break;
+                price = 10;
+                productName = 'GCash In/Out';
+                productCode.value = 13;
+                break;
+            case 'lamination':
+                price = 45;
+                productName = 'Lamination';
+                productCode.value = 14;
+                break;
+            case 'short-brown':
+                price = 10;
+                productName = 'S Brown Envelope';
+                productCode.value = 15;
+                break;
+            case 'long-brown':
+                price = 15;
+                productName = 'L Brown Envelope';
+                productCode.value = 16;
+                break;
         }
         popUp.classList.add('open-popup');
     });
@@ -132,6 +147,7 @@ popupBtn.addEventListener('click', () => {
          updateTotalTable();
          updateGrandTotal(); // Add this line
      }
+     productQty.value = 1;
 
      popUp.classList.remove('open-popup');
  });
@@ -148,7 +164,7 @@ popupBtn.addEventListener('click', () => {
         let cell3 =row.insertCell(2);
 
         cell1.textContent = item.productName;
-        cell2.textContent = `₱${item.totalAmount}`;
+        cell2.textContent = `₱${item.totalAmount.toFixed(2)}`;
     
         // Create a delete button
         let deleteButton = document.createElement('button');
@@ -167,7 +183,7 @@ popupBtn.addEventListener('click', () => {
  function updateGrandTotal() {
     // Calculate the Grand Total
     let sumAmount = selectedItems.reduce((total, item) => total + item.totalAmount, 0);
-    grandTotal.textContent = `Grand Total: ₱${sumAmount}`;
+    grandTotal.textContent = `Grand Total: ₱${sumAmount.toFixed(2)}`;
 }
 
 function deleteProduct(index, row) {

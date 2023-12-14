@@ -19,6 +19,17 @@ header {
     color: white;
 }
 
+.navigation {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+}
+
 main {
     display: flex;
     justify-content: space-between;
@@ -80,7 +91,7 @@ main {
 
 aside {
     background-color: #e8e8e8;
-    width: 40rem;
+    width: 45rem;
     height: 100vh;
     /* position: absolute; */
     right: 0;
@@ -123,7 +134,7 @@ aside {
 }
 
 #popup-btn {
-    background-color: yellowgreen;
+    background-color: #92be6c;
     border: none;
     padding: .4rem .8rem;
     border-radius: 7px;
