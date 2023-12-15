@@ -27,11 +27,11 @@ try {
 
         // Return a success message if needed
         echo "Transaction saved successfully!";
-        header('Location: index.php');
+        header('Location: ../index.php');
     } else {
         $_SESSION['status'] = "failed";
         $_SESSION['transaction_success'] = false;
-        header('Location: index.php');
+        header('Location: ../index.php');
 
         echo 'Error: Missing data';
     }

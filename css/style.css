@@ -20,15 +20,29 @@ header {
     color: white;
 }
 
+button {
+    font-family: 'Sora', Arial, Helvetica, sans-serif;
+}
+
 .navigation {
     list-style-type: none;
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 
 .nav-links a{
     text-decoration: none;
     color: white;
+    transition: .2s ease all;
+}
+
+.nav-links a:hover {
+    background-color: #6e7d89;
+    padding: .8rem;
+    border-radius: 7px;
+    text-underline-offset: .5rem;
+    transition: .2s ease all;
 }
 
 main {
@@ -241,6 +255,7 @@ table {
 
 #save-btn:hover {
     background-color: #869c72;
+    transition: .2s ease all;
 }
 
 #print-btn {
@@ -251,11 +266,12 @@ table {
     cursor: pointer;
     color: black;
     font-size: 16px;
+    transition: .2s ease all;
 }
 
 #print-btn:hover {
     background-color: #cbaf78;
-
+    transition: .2s ease all;
 }
 
 #clear-btn {
@@ -266,6 +282,7 @@ table {
     cursor: pointer;
     color: black;
     font-size: 16px;
+    transition: .2s ease all;
 }
 
 #cash-btn {
@@ -276,10 +293,12 @@ table {
     cursor: pointer;
     color: black;
     font-size: 16px;
+    transition: .2s ease all;
 }
 
 #cash-btn:hover {
     background-color: #9c9c9c;
+    transition: .2s ease all;
 }
 .total-actions{
     display: flex;
@@ -317,4 +336,20 @@ table {
 #save-form{
     display: flex;
     flex-direction: column;
+}
+
+#logout-btn {
+    padding: .6rem;
+    border: none;
+    background-color: #798996;
+    cursor:pointer;
+    border-radius: 7px;
+    color: white;
+    transition: .2s ease all;
+
+}
+
+#logout-btn:hover{
+    background-color: #6e7d89;
+    transition: .2s ease all;
 }

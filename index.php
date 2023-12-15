@@ -1,13 +1,14 @@
 <?php
     session_start();
-    // // $status = isset($_POST['status']) ? $_POST['status'] : '';
-    // if (!isset($_SESSION['status'])) {
-    //     $_SESSION['status'] = 'success';
-    // }
 
     $transactionSuccess = isset($_SESSION['transaction_success']) && $_SESSION['transaction_success'];
     unset($_SESSION['transaction_success']);
-
+    
+    if (!isset($_SESSION['username'])) {
+        // Redirect the user to the login page or another page
+        header('Location: login.php');
+        exit(); // Make sure to exit after sending the header to stop script execution
+    }
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -38,6 +39,9 @@
                     <i class="fa-solid fa-circle-question fa-xl"></i>
                 </a>
             </li>
+            <form action="backend/logout.php">
+                    <button id="logout-btn" type="submit">Log Out</button>
+            </form>
         </ul>
    
     </header>
@@ -211,7 +215,7 @@
                         <button id="cash-btn"><i class="fa-regular fa-money-bill-1"></i> Insert Cash Amount</button>
                         <!-- <button id="clear-btn"><i class="fa-solid fa-circle-check"></i> Done Transaction</button> -->
                         <button id="print-btn"><i class="fa-solid fa-print"></i> Print</button>
-                        <form id="save-form" action="save_transaction.php" method="post">
+                        <form id="save-form" action="backend/save_transaction.php" method="post">
                             <input type="number" name="grand-total-amount" id="grand-total-amount" hidden>
                             <button id="save-btn" type="submit"><i class="fa-regular fa-circle-check"></i> Done Transaction</button>
                         </form>

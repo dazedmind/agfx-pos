@@ -30,7 +30,7 @@ let gcashInOut = document.getElementById('gcash')
 // TOTAL
 let subTotalBox = document.getElementById('total-box')
 let totalTableBody = document.getElementById('total-table-body'); 
-let saveBtn = document.getElementById('save-btn'); // Add this line
+let saveBtn = document.getElementById('save-btn'); 
 let cashBtn = document.getElementById('cash-btn')
 let printBtn = document.getElementById('print-btn')
 
