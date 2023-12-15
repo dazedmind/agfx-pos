@@ -213,7 +213,7 @@
 
                     <div class="total-actions">
                         <button id="cash-btn"><i class="fa-regular fa-money-bill-1"></i> Insert Cash Amount</button>
-                        <!-- <button id="clear-btn"><i class="fa-solid fa-circle-check"></i> Done Transaction</button> -->
+                        <button id="clear-btn"><i class="fa-solid fa-times"></i> Clear Total</button>
                         <button id="print-btn"><i class="fa-solid fa-print"></i> Print</button>
                         <form id="save-form" action="backend/save_transaction.php" method="post">
                             <input type="number" name="grand-total-amount" id="grand-total-amount" hidden>

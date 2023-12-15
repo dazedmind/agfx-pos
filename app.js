@@ -162,8 +162,6 @@ saveBtn.addEventListener('onsubmit', () => {
     // exportToExcel();
 });
 
-
-
 popupBtn.addEventListener('click', () => {
     // Check if productQty has a valid value
      if (productQty.value > 0) {
@@ -240,6 +238,22 @@ function deleteProduct(index, row) {
 
 //  DONE TRANSACTION BUTTON RESETS VARIABLE
 saveBtn.addEventListener('click', () => {
+    // Reset variables
+    selectedItems = [];
+    totalAmount = 0;
+    price = 0;
+    productName = '';
+    sumAmount = 0;
+
+    // Clear the table
+    totalTableBody.innerHTML = '';
+    changeDisplay.textContent = '';
+    cashInserted.textContent = '';
+    // Update the grand total
+    updateGrandTotal();
+});
+
+clearBtn.addEventListener('click', () => {
     // Reset variables
     selectedItems = [];
     totalAmount = 0;

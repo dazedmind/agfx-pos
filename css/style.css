@@ -275,7 +275,7 @@ table {
 }
 
 #clear-btn {
-    background-color: #a3be8c;
+    background-color: #d68989;
     border: none;
     padding: .6rem .8rem;
     border-radius: 7px;
@@ -307,7 +307,7 @@ table {
     margin-top: 1rem;
 }
 
-.fa-print, .fa-download, .fa-circle-check, .fa-money-bill {
+.fa-print, .fa-download, .fa-circle-check, .fa-money-bill, .fa-times {
     color: black;
 }
 
